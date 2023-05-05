@@ -1,0 +1,16 @@
+# 1
+
+SELECT email, count(email) AS cnt FROM Staff 
+GROUP BY email
+HAVING count(email) > 1
+
+# 2
+
+SELECT *, IF(DAYOFYEAR(NOW()) > DAYOFYEAR(birthday), YEAR(NOW()) - YEAR(birthday), YEAR(NOW()) - YEAR(birthday) -1) AS age FROM Staff
+
+# 3
+
+SELECT Jobtitles.name FROM Staff INNER JOIN Jobtitles
+ON Staff.jobtitle_id = Jobtitles.jobtitle_id
+ORDER BY salary DESC 
+LIMIT 1,1
